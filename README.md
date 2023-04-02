@@ -1,3 +1,3 @@
-# awesome-component-angular
+# awesome-components
 Learn Angular
 
