@@ -1,6 +1,8 @@
 <div class="comments-row">
 	<mat-form-field>
-	  <input type="text" (keyup.enter)=" onLeaveComment()" matInput placeholder="Laissez un commentaire…" [formControl]="commentCtrl">
+		<mat-label appearance="fill">Laissez un commentaire…</mat-label>
+		<input type="text" matInput (keyup.enter)=" onLeaveComment()" [formControl]="commentCtrl">
+		<mat-error>Ecrivez au moins cinq caractères.</mat-error>
 	</mat-form-field>
 	<button mat-icon-button color="primary" (click)="onLeaveComment()">
 	  <mat-icon>send</mat-icon>
@@ -8,10 +10,14 @@
 </div>
   
 
-<mat-list *ngIf="comments.length">
+<mat-list *ngIf="comments.length" @list>
 	<h2 matSubheader>Commentaires</h2>
-	<mat-list-item *ngFor="let comment of comments">
-	  <span mat-line>{{ comment.comment }}</span><br>
-	  <span mat-line>{{ tempDate | timeAgo }}</span>
+	<mat-list-item *ngFor="let comment of comments; let i = index" 
+					[@listItem]="animationStates[i]"
+					(mouseenter)="onListItemMouseEnter(i)"
+					(mouseleave)="onListItemMouseLeave(i)"
+					>
+	  <span class="comment-text" mat-line>{{ comment.comment }}</span><br>
+	  <span class="comment-date" mat-line>{{ comment.createdDate | timeAgo }}</span>
 	</mat-list-item>
   </mat-list>

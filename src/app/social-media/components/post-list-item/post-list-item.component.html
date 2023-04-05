@@ -1,10 +1,10 @@
 <mat-card>
 	<mat-card-header>
 	  <mat-card-title>
-		<span>{{ post.title | titlecase }}</span>
+		<span highlight color="green">{{ post.title | titlecase }}</span>
 	  </mat-card-title>
 	  <mat-card-subtitle>
-		<span>{{ tempUser | username }}</span>
+		<span>{{ tempUser | username }}</span> <br>
 		<span>{{ post.createdDate | timeAgo }}</span>
 	  </mat-card-subtitle>
 	</mat-card-header>
@@ -15,4 +15,4 @@
 	<mat-card-actions>
 		<app-comments [comments]="post.comments" (newComment)="onNewComment($event)"></app-comments>
 	</mat-card-actions>
-  </mat-card>
+</mat-card>
