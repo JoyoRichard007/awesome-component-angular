@@ -9,6 +9,7 @@ import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
@@ -34,7 +35,8 @@ import { MatRadioModule } from '@angular/material/radio';
    TimeAgoPipe,
    HighlightDirective,
    MatCheckboxModule,
-   MatRadioModule
+   MatRadioModule,
+   MatGridListModule
   ]
 })
 export class SharedModule { }

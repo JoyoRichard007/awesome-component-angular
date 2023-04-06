@@ -1,0 +1,21 @@
+<mat-card>
+	<mat-card-title-group>
+	  <mat-card-title>
+		Candidats
+	  </mat-card-title>
+	</mat-card-title-group>
+	<mat-spinner *ngIf="loading$ | async"></mat-spinner>
+	<mat-nav-list *ngIf="candidate$ | async as candidates">
+	  <a *ngFor="let candidate of candidates" mat-list-item [routerLink]="candidate.id.toString()">
+		<mat-grid-list cols="2" rowHeight="1:2">
+			<mat-grid-tile [ngClass]="{'image-tile': true}">
+			  <img [src]="candidate.imageUrl" [alt]="candidate.lastName" matListAvatar>
+			</mat-grid-tile>
+			<mat-grid-tile [ngClass]="{'info-tile': true}">
+			  <h3 matLine>{{ candidate.firstName }} {{ candidate.lastName }} <p matLine>{{ candidate.job }} chez {{ candidate.company }}</p></h3>
+			</mat-grid-tile>
+		  </mat-grid-list>
+		  
+	  </a>
+	</mat-nav-list>
+</mat-card>
